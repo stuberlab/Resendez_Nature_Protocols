@@ -25,11 +25,11 @@ if ~exist('map','var')
     %% Get images
     path = uigetdir(pwd,'Directory of cell images to register');
     if path == 0, return, end
-    [map,coords] = cellMap(1,path);
+    [map,coords] = mapCells(1,path);
     
     path = uigetdir(path,'Directory of reference cell images');
     if path == 0, return, end
-    ref = cellMap(1,path);
+    ref = mapCells(1,path);
 end
 
 
