@@ -2,6 +2,8 @@
 
 See [wiki](https://github.com/stuberlab/Resendez_Nature_Protocols/wiki) for more information
 
+---
+
 For even more details, refer to:
 
 - Resendez SL et al. Visualization of cortical, subcortical and deep brain neural circuit dynamics during naturalistic mammalian behavior with head-mounted microscopes and chronically implanted lenses. _Nature Protocols_ (2016).  
