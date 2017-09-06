@@ -36,10 +36,10 @@ end
 %% Register images
 [optimizer, ...
  metric] = imregconfig('multimodal');
-tform    = imregtform(uint8(map),uint8(ref),'similarity',optimizer,metric);   % transform - registers map to ref
+tform    = imregtform(im2uint8(map),im2uint8(ref),'similarity',optimizer,metric);   % transform - registers map to ref
 R1       = imref2d(size(map));
 R2       = imref2d(size(ref));
-reged    = imwarp(uint8(map),R1,tform,'outputView',R2);                % registered map
+reged    = imwarp(im2uint8(map),R1,tform,'outputView',R2);                % registered map
 
 
 %% Transform coordinates
