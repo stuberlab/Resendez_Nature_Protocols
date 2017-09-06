@@ -36,16 +36,16 @@ end
 %% Register images
 [optimizer, ...
  metric] = imregconfig('multimodal');
-tform    = imregtform(map,ref,'similarity',optimizer,metric);   % transform - registers map to ref
+tform    = imregtform(uint8(map),uint8(ref),'similarity',optimizer,metric);   % transform - registers map to ref
 R1       = imref2d(size(map));
 R2       = imref2d(size(ref));
-reged    = imwarp(map,R1,tform,'outputView',R2);                % registered map
+reged    = imwarp(uint8(map),R1,tform,'outputView',R2);                % registered map
 
 
 %% Transform coordinates
-coords  = coords(1,size(coords,2)+1);       % add column of zeros to make it "3D"
-coordTF = coords * tform.T;                 % transform coordinates based on registration
-coordTF = coordTF(:,1:end-1);               % remove 3rd "dimesion"/column
+coords  = [zeros(size(coords,1),1), coords];    % add column of zeros to make it "3D"
+coordTF = coords * tform.T;                     % transform coordinates based on registration
+coordTF = coordTF(:,1:end-1);                   % remove 3rd "dimesion"/column
 
 %{
 %% Plot
