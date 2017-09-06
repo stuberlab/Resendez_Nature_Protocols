@@ -23,10 +23,12 @@ function [reged,coordTF,tform] = mapReg(map,ref,coords)
 %% Define maps
 if ~exist('map','var')
     %% Get images
+    disp('Directory of cell images to register');
     path = uigetdir(pwd,'Directory of cell images to register');
     if path == 0, return, end
     [map,coords] = mapCells(1,path,'overlay');
     
+    disp('Directory of reference cell images');
     path = uigetdir(path,'Directory of reference cell images');
     if path == 0, return, end
     ref = mapCells(1,path,'overlay');
