@@ -15,14 +15,6 @@ function [cellImg,coords] = mapCells(data,imgPath,method)
 
 %% Parameters
 filt = [3 3];               % parameters for median filter used to create cell maps
-if strcmpi(method, 'add')
-    toOverlay = false;
-else
-    if ~strcmpi(method, 'overlay')
-        fprint('No valid method defined. Cells will be overlayed.')
-    end
-    toOverlay = true;
-end
 
 
 %% Retrieve image directory
@@ -34,9 +26,22 @@ if ~exist('imgPath','var')
         msgbox('No directory selected')
         return
     end
+    
+    data = 1;
+    method = 'overlay';
 end
 
-imgFiles  = cellstr(ls([imgPath '\*.tif']));          % identify relevant image files
+if strcmpi(method, 'add')
+    toOverlay = false;
+else
+    if ~strcmpi(method, 'overlay')
+        fprint('No valid method defined. Cells will be overlayed.')
+    end
+    toOverlay = true;
+end
+
+files     = dir([imgPath '\*.tif'])
+imgFiles  = {files.name};                               % identify relevant image files
 fileNum   = length(imgFiles);                           % caculate number of files
 
 % Sort files by cell ID
