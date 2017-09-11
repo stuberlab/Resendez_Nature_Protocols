@@ -28,7 +28,7 @@ if ~exist('imgPath','var')
     end
     
     data = 1;
-    method = 'overlay';
+    method = 'add';
 end
 
 if strcmpi(method, 'add')
@@ -40,7 +40,7 @@ else
     toOverlay = true;
 end
 
-files     = dir([imgPath '\*.tif'])
+files     = dir([imgPath '\*.tif']);
 imgFiles  = {files.name};                               % identify relevant image files
 fileNum   = length(imgFiles);                           % caculate number of files
 
