@@ -30,8 +30,8 @@ end
 [~,dX] = knnsearch(X,X,'k',2);      % find nearest neighbor for points within X
 [~,dY] = knnsearch(Y,Y,'k',2);      % find nearest neighbor for points within X
 dWI    = [dX(:,2);dY(:,2)];         % compile data - ignore first column (pairing with self)
-fprintf('Distances within min: %d', ...
-        min(dWI))                   % print minimum distance to command window
+% fprintf('Distances within min: %d\n', ...
+%         min(dWI))                   % print minimum distance to command window
 
 
 %% Distances between
