@@ -40,7 +40,7 @@ else
     toOverlay = true;
 end
 
-files     = dir([imgPath '\*.tif']);
+files     = dir([imgPath filesep '*.tif']);
 imgFiles  = {files.name};                               % identify relevant image files
 fileNum   = length(imgFiles);                           % caculate number of files
 
